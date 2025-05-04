@@ -15,8 +15,6 @@ function charSet(numbers, special) {
     min = min === '' ? 12 : Number(min);
     max = max === '' ? 16 : Number(max);
 
-    console.log('min: ' + min, 'max: ' + max);
-    
     const length = Math.floor(Math.random() * (max - min + 1)) + min;
     
     for (let i = 0; i < length; i++) {
