@@ -8,36 +8,45 @@ $orange-2: #ff9068;
 body {
     font-family: 'roboto condensed', sans-serif;
     background-color: $orange-2; 
-    background: -webkit-linear-gradient(to top, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #36322e;
     font-size: 1.1rem;
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #212121;
 }
 
 h1 {
+  color: #fd746c; 
     text-align: center;
-    color: white;
+    font-size: 3.5rem; 
 }
 
+@supports (-webkit-background-clip: text) {
+
+  h1 {
+    background: linear-gradient(to top, #ff9068, #fd746c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+
 button {
-    background: #fd746c;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    cursor: pointer;
-    
+   cursor: pointer;    
 }
 
 .container {
-    background-color: white;
+    background-color: #36322e; 
+    border: 1px solid #fd746c;
+    color: antiquewhite; 
     padding: 2rem 1rem;
     max-width: 30rem;
     min-width: 15rem;
     margin: 4rem auto;
     border-radius: .3rem;
-    box-shadow: .2rem .3rem 2rem rgba(23, 22, 22, 0.073);
+    box-shadow: 0 0 5px #ff9068; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,16 +55,18 @@ button {
 }
 
 #password {
-    font-size: 1.2rem;
-    padding: .3rem .5rem;
+    padding: .5rem .75rem;
     font-family: inherit;
+    font-size: 1.5rem; 
     border: .01rem solid $orange-2;
     border-radius: .3rem;
     color: #a044ff;
+    text-align: center;
+    background-color: #212121;
     
     &:focus-visible,
     &:focus-within {
-        outline: .05rem solid $orange-2;
+        outline: .05rem solid #a044ff;
     }
 }
 
@@ -74,7 +85,8 @@ button {
 }
 
 .strength-visualizer {
-    background-color: #EFEEEA; 
+    background-color: #212121; 
+    border-radius: .3rem;
     height: 4rem;
     width: 10rem;
     display: flex;
@@ -121,12 +133,19 @@ label[for="password"] {
     button {
         z-index: 1;
         position: relative;
-        width: 1.2rem;
+        width: 1.6rem;
         aspect-ratio: 1;
+        border-radius: 50%;
         background: url(/public/images/copy.svg) no-repeat;
-        background-size: cover;
+        background-size: 1rem;
         background-position: center; 
         border: none; 
+        
+        &:hover {
+           background: url(/public/images/copy.svg) no-repeat, #212121;
+           background-size: 1rem;
+           background-position: center; 
+        }
     }
 }
 
@@ -156,6 +175,11 @@ label[for="password"] {
 input[type="checkbox"] {
     accent-color: #a044ff;
     cursor: pointer;
+}
+
+input[type="number"] {
+    background-color: #212121;
+    background-color: transparent;
 }
 
 .checkboxes {
@@ -188,9 +212,13 @@ button[type="submit"] {
     border: .1rem solid #a044ff;
     background: transparent; 
     color: #a044ff;
-    box-shadow: .4rem .3rem 0;
+    box-shadow: .4rem .3rem 0, 0 0 5px  #a044ff;
     transition: .4s;
+    border-radius: .3rem;
+
     &:hover {
-        box-shadow: 0 0 0;
+        box-shadow: 0 0 5px  #a044ff;
+        background-color: #a044ff;
+        color: #36322e;
     }
 }

@@ -4,34 +4,43 @@
 
 body {
   font-family: "roboto condensed", sans-serif;
-  background-color: #ff9068; /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #ff9068;
   color: #36322e;
   font-size: 1.1rem;
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #212121;
 }
 
 h1 {
+  color: #fd746c;
   text-align: center;
-  color: white;
+  font-size: 3.5rem;
 }
 
+@supports (-webkit-background-clip: text) {
+  h1 {
+    background: linear-gradient(to top, #ff9068, #fd746c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 button {
-  background: #fd746c; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   cursor: pointer;
 }
 
 .container {
-  background-color: white;
+  background-color: #36322e;
+  border: 1px solid #fd746c;
+  color: antiquewhite;
   padding: 2rem 1rem;
   max-width: 30rem;
   min-width: 15rem;
   margin: 4rem auto;
   border-radius: 0.3rem;
-  box-shadow: 0.2rem 0.3rem 2rem rgba(23, 22, 22, 0.073);
+  box-shadow: 0 0 5px #ff9068;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,15 +48,17 @@ button {
 }
 
 #password {
-  font-size: 1.2rem;
-  padding: 0.3rem 0.5rem;
+  padding: 0.5rem 0.75rem;
   font-family: inherit;
+  font-size: 1.5rem;
   border: 0.01rem solid #ff9068;
   border-radius: 0.3rem;
   color: #a044ff;
+  text-align: center;
+  background-color: #212121;
 }
 #password:focus-visible, #password:focus-within {
-  outline: 0.05rem solid #ff9068;
+  outline: 0.05rem solid #a044ff;
 }
 
 .settings {
@@ -64,7 +75,8 @@ button {
 }
 
 .strength-visualizer {
-  background-color: #EFEEEA;
+  background-color: #212121;
+  border-radius: 0.3rem;
   height: 4rem;
   width: 10rem;
   display: flex;
@@ -102,12 +114,18 @@ label[for=password] {
 .copy button {
   z-index: 1;
   position: relative;
-  width: 1.2rem;
+  width: 1.6rem;
   aspect-ratio: 1;
+  border-radius: 50%;
   background: url(/public/images/copy.svg) no-repeat;
-  background-size: cover;
+  background-size: 1rem;
   background-position: center;
   border: none;
+}
+.copy button:hover {
+  background: url(/public/images/copy.svg) no-repeat, #212121;
+  background-size: 1rem;
+  background-position: center;
 }
 
 .alert {
@@ -135,6 +153,11 @@ label[for=password] {
 input[type=checkbox] {
   accent-color: #a044ff;
   cursor: pointer;
+}
+
+input[type=number] {
+  background-color: #212121;
+  background-color: transparent;
 }
 
 .checkboxes {
@@ -166,9 +189,12 @@ button[type=submit] {
   border: 0.1rem solid #a044ff;
   background: transparent;
   color: #a044ff;
-  box-shadow: 0.4rem 0.3rem 0;
+  box-shadow: 0.4rem 0.3rem 0, 0 0 5px #a044ff;
   transition: 0.4s;
+  border-radius: 0.3rem;
 }
 button[type=submit]:hover {
-  box-shadow: 0 0 0;
+  box-shadow: 0 0 5px #a044ff;
+  background-color: #a044ff;
+  color: #36322e;
 }/*# sourceMappingURL=index.css.map */
